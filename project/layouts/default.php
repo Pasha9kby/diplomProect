@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>тайтл страницы</title>
+    <link rel="stylesheet" href="/project/webroot/style.css">
+    <title><?= $title?></title>
 </head>
 <body>
 <header>

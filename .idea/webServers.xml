@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="18b66e7e-a2e3-46f5-b491-fe033d6d2b78" name="cabinetEurowork" url="http://s3.open.by">
+        <fileTransfer rootFolder="/cabinet.eurowork.by" host="s3.open.by" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

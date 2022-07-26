@@ -3,6 +3,31 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/project/webroot/style.css">
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/bootstrap.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/base.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/swiper.css?_1637782698" type="text/css" />
+
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/dark.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/font-icons.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/et-line.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/animate.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/magnific-popup.css?_1637782698" type="text/css" />
+
+    <!--Цветовая схема-->
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/palette.css?_1637782698" type="text/css" />
+
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/fonts.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/blocks.css?_1637782698" type="text/css" />
+
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/custom.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/css/responsive.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/style.css?_1637782698" type="text/css" />
+
+    <!--Шрифты-->
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/fonts/roboto.css?_1637782698" type="text/css" />
+    <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/fonts/roboto.css?_1637782698" type="text/css" />
+    <script src="https://kit.fontawesome.com/f227339774.js" crossorigin="anonymous"></script>
+
     <title><?= $title?></title>
 </head>
 <body>
@@ -36,14 +61,7 @@
                 <div class="toppadding-xs" id="site_name"><a href="https://eurowork.by/">EuroWork.by</a></div>
                 <div class="" id="site_description">Ваши новые возможности</div>
             </div>
-
         </div><!-- #logo end -->
-
-
-        <div class="btn-holder pull-right media-desktop leftmargin-minier">
-            <button type="button"  data-url="https://eurowork.by/wp-content/themes/shabloner_8061//forms/basic.php" class="dialog_open pull-right button button-rounded button-large  button-circle button-circle" >Обратный звонок</button>
-        </div>
-
 
         <ul class="header-extras">
             <li>
@@ -55,19 +73,13 @@
             </li>
 
             <li>
-                <i class="i-plain icon-call nomargin color"></i>
+                <i class="fa-solid fa-phone"></i>
                 <div class="he-text">
                     Телефон
                     <span class="text-muted">+375 29 893 18 79</span>
                 </div>
             </li>
-
-
-
-
         </ul>
-
-
     </div>
 
 </header><!-- / block_179600 -->

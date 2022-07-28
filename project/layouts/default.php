@@ -66,7 +66,7 @@
 
         <ul class="header-extras">
             <li>
-                <i class="i-plain icon-map-marker nomargin color"></i>
+<!--                <i class="i-plain icon-map-marker nomargin color"></i>-->
                 <div class="he-text">
                     Адрес
                     <span class="text-muted">г.Минск Независимости 58, офис 432</span>
@@ -74,7 +74,7 @@
             </li>
 
             <li>
-                <i class="fa-solid fa-phone"></i>
+<!--                <i class="fa-solid fa-phone"></i>-->
                 <div class="he-text">
                     Телефон
                     <span class="text-muted">+375 29 893 18 79</span>
@@ -85,9 +85,9 @@
 
 </header><!-- / block_179600 -->
 <div class="container">
-    <aside class="sidebar left">
-        левый сайдбар
-    </aside>
+<!--    <aside class="sidebar left">-->
+<!--        левый сайдбар-->
+<!--    </aside>-->
     <main>
         <?= $content ?>
     </main>

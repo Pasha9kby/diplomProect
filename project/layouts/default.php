@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/fonts/roboto.css?_1637782698" type="text/css" />
     <link rel="stylesheet" href="https://eurowork.by/wp-content/themes/shabloner_8061/fonts/roboto.css?_1637782698" type="text/css" />
     <script src="https://kit.fontawesome.com/f227339774.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/9a8b3abb1d.js"></script>
 
     <title><?= $title?></title>
 </head>

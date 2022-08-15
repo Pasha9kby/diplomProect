@@ -12,6 +12,5 @@ class InputController extends Controller
 
     public function show(){
         return $this->render('input/show');
-//        echo "ПРИВЕТ ВСЕ ХОРОШО";
     }
 }

@@ -26,4 +26,16 @@
 			
 			return $data;
 		}
+
+		protected function lastID()
+        {
+            $id=mysqli_insert_id(self::$link);
+            return $id;
+        }
+
+        protected function saveBD($query)
+        {
+            $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
+            return $result;
+        }
 	}

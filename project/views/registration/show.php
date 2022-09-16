@@ -1,30 +1,55 @@
 <?php
+if(isset($_SESSION['err']))
+{
+    $err=$_SESSION['err'];
+}
+
 ?>
 
 
 <form action="" method="POST">
-    <label>имя</label>
-    <input name="name" type="text"> <br>
-<!--    --><?//= $err['name'] ?>
-    <label>фамилия</label>
-    <input name="soname" type="text"> <br>
-<!--    --><?//= $err['soname'] ?>
-    <label>телефон</label>
-    <input name="phone" type="tel"> <br>
-<!--    --><?//= $err['phone'] ?>
-    <label>e-mail</label>
-    <input name="email" type="email"> <br>
-<!--    --><?//= $err['email'] ?>
-    <label>логин</label>
-    <input name="login" type="text"> <br>
-<!--    --><?//= $err['login'] ?>
-    <label>пароль</label>
-    <input type="password" name="password"><br>
-<!--    --><?//= $err['password'] ?>
-    <label>повторите пароль</label>
-    <input type="password" name="confirm">
+    <div>
+        <label>имя</label>
+        <input name="name" type="text" <?=(isset($_POST['name']))?'value='.$_POST['name']:"placeholder='введите имя'"?>>
+        <? if(isset($err['name'])){echo $err['name'];} ?>
+    </div>
+    <div>
+        <label>фамилия</label>
+        <input name="soname" type="text" <?=(isset($_POST['soname']))?'value='.$_POST['soname']:"placeholder='введите фамилию'"?>>
+        <? if(isset($err['soname'])){echo $err['soname'];} ?>
+    </div>
+    <div>
+        <label>телефон</label>
+        <input name="phone" type="tel" <?=(isset($_POST['phone']))?'value='.$_POST['phone']:"placeholder='+375291111111'"?>>
+        <? if(isset($err['phone'])){echo $err['phone'];} ?>
+    </div>
+    <div>
+        <label>e-mail</label>
+        <input name="email" type="email" <?=(isset($_POST['email']))?'value='.$_POST['email']:"placeholder='введите email'"?>>
+        <? if(isset($err['email'])){echo $err['email'];} ?>
+    </div>
+    <div>
+        <label>Пол</label>
+        <select name="sex" type="text" <?=(isset($_POST['sex']))?'value='.$_POST['sex']:""?>>
+            <option></option>
+            <option>М</option>
+            <option>Ж</option>
+        </select>
+        <? if(isset($err['sex'])){echo $err['sex'];} ?>
+    </div>
+    <div>
+         <label>пароль</label>
+         <input type="password" name="password" <?=(isset($_POST['password']))?'value='.$_POST['password']:"placeholder='введите пароль'"?>>
+        <? if(isset($err['password'])){echo $err['password'];} ?>
+    </div>
+    <div>
+        <label>повторите пароль</label>
+        <input type="password" name="confirm" <?=(isset($_POST['confirm']))?'value='.$_POST['confirm']:"placeholder='введите пароль'"?>>
+        <? if(isset($err['confirm'])){echo $err['confirm'];} ?>
+    </div>
     <button type="submit" class="" name="submit">Отправить</button>
 </form>
+
 
 
 

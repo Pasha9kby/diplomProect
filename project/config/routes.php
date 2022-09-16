@@ -8,5 +8,6 @@
         new Route('/registration/error/', 'registration', 'error'),
         new Route('/registration/happy/', 'registration', 'happyRegistration'),
 
+
 	];
 	

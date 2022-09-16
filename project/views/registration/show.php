@@ -47,7 +47,7 @@ if(isset($_SESSION['err']))
         <input type="password" name="confirm" <?=(isset($_POST['confirm']))?'value='.$_POST['confirm']:"placeholder='введите пароль'"?>>
         <? if(isset($err['confirm'])){echo $err['confirm'];} ?>
     </div>
-    <button type="submit" class="" name="submit">Отправить</button>
+    <button type="submit" class="submit" name="submit">Отправить</button>
 </form>
 
 

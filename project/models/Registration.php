@@ -11,22 +11,21 @@ class Registration extends Model
     public function validaition()
     {
         $massive = [];
-        function clear_data($val)
-        {
-            $val = trim($val);
-            $val = stripslashes($val);
-            $val = strip_tags($val);
-            $val = htmlspecialchars($val);
-            return $val;
-        }
-
-        $massive['name'] = clear_data($_POST['name']);
-        $massive['soname'] = clear_data($_POST['soname']);
-        $massive['phone'] = clear_data($_POST['phone']);
-        $massive['email'] = clear_data($_POST['email']);
-        $massive['sex'] = clear_data($_POST['sex']);
-        $massive['password'] = clear_data($_POST['password']);
-        $massive['confirm'] = clear_data($_POST['confirm']);
+//        function clear_data($val)
+//        {
+//            $val = trim($val);
+//            $val = stripslashes($val);
+//            $val = strip_tags($val);
+//            $val = htmlspecialchars($val);
+//            return $val;
+//        }
+        $massive['name'] = $this->clear_data($_POST['name']);
+        $massive['soname'] = $this->clear_data($_POST['soname']);
+        $massive['phone'] = $this->clear_data($_POST['phone']);
+        $massive['email'] = $this->clear_data($_POST['email']);
+        $massive['sex'] = $this->clear_data($_POST['sex']);
+        $massive['password'] = $this->clear_data($_POST['password']);
+        $massive['confirm'] = $this->clear_data($_POST['confirm']);
 
         return $massive;
     }

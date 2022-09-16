@@ -5,23 +5,32 @@ namespace Project\Controllers;
 use core\controller;
 use \Project\Models\Input;
 
-$login = $_POST['login'];
-$new_url = '/userlist/';
-$bd=new Input();
- $user=$bd->user($login);
+if(!empty($_POST['email'])){
+    $new_url = '/userlist/';
+    $massive[] = $_POST;
 
-if (!empty($user)) {
-    $hash = $user['password']; // соленый пароль из БД
+    $val = new Input();
+    $valMassive = $val->validaition($massive);
+    $user=$val->user($valMassive['email']);
 
-    // Проверяем соответствие хеша из базы введенному паролю
-    if (password_verify($_POST['password'], $hash)) {
-        // все ок, авторизуем...
+    if (!empty($user)) {
+        $hash = $user['pasword']; // соленый пароль из БД
+
+        // Проверяем соответствие хеша из базы введенному паролю
+        if (password_verify($_POST['password'], $hash)) {
+//            header('Location: ' . $new_url);
+            $err = 'все отлично';
+        } else {
+            $err = 'пароль не подошел';
+        }
     } else {
-        // пароль не подошел, выведем сообщение
+        $err = 'логин не подошел';
     }
-} else {
-    // пользователя с таким логином нет, выведем сообщение
+//    session_start();
+    $_SESSION['err']=$err;
 }
+
+
 
 class InputController extends Controller
 {

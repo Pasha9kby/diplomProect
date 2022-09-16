@@ -38,4 +38,13 @@
             $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
             return $result;
         }
+
+        protected function clear_data($val)
+        {
+            $val = trim($val);
+            $val = stripslashes($val);
+            $val = strip_tags($val);
+            $val = htmlspecialchars($val);
+            return $val;
+        }
 	}

@@ -7,6 +7,7 @@
         new Route('/registration/', 'registration', 'show'),
         new Route('/registration/error/', 'registration', 'error'),
         new Route('/registration/happy/', 'registration', 'happyRegistration'),
+        new Route('/userlist/', 'userlist', 'show'),
 
 
 	];

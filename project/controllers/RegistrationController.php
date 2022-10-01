@@ -59,24 +59,6 @@ if(!empty($_POST)) {
         $_SESSION['err'] = $err;
     }
 
-//    $test = $_POST['date_of_birth'];
-////    echo $test1=timestamp();
-//    echo "время: " . strtotime($test) . "<br>";
-//    $vremia = floor((time() - strtotime($test)) / 60 / 60 / 24);
-//    echo $vremia . " дней<br>";
-//    $test2 = strtotime($test);
-//    echo "новое время " . date('d-m-Y', $test2) . "<br>";
-////    echo "новое время2 ".date_format($test2, 'd-m-Y');
-//    $day = date('d', $test2);
-//    $month = date('m', $test2);
-//    $yaer = date('Y', $test2);
-//
-//$test= strtotime($errDate);
-//    $day = date('d', $test);
-//    $month = date('m', $test);
-//    $yaer = date('Y', $test);
-//    echo "дата день - ".$day.", month - ".$month.", yaer - ".$yaer;
-
 }
 
 

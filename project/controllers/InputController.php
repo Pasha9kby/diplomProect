@@ -26,7 +26,6 @@ if(!empty($_POST['email'])){
     } else {
         $err = 'логин не подошел';
     }
-//    session_start();
     $_SESSION['err']=$err;
 }
 

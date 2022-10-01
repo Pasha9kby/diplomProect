@@ -11,19 +11,13 @@ class Registration extends Model
     public function validaition()
     {
         $massive = [];
-//        function clear_data($val)
-//        {
-//            $val = trim($val);
-//            $val = stripslashes($val);
-//            $val = strip_tags($val);
-//            $val = htmlspecialchars($val);
-//            return $val;
-//        }
+
         $massive['name'] = $this->clear_data($_POST['name']);
         $massive['soname'] = $this->clear_data($_POST['soname']);
         $massive['phone'] = $this->clear_data($_POST['phone']);
         $massive['email'] = $this->clear_data($_POST['email']);
         $massive['sex'] = $this->clear_data($_POST['sex']);
+        $massive['date_of_birth'] = $this->clear_data($_POST['date_of_birth']);
         $massive['password'] = $this->clear_data($_POST['password']);
         $massive['confirm'] = $this->clear_data($_POST['confirm']);
 
@@ -125,9 +119,9 @@ class Registration extends Model
 
     public function validSex($massive)
     {
-        $pattern_name = '~[МЖ]~';
+        $pattern_sex = '~[МЖ]~';
         $err=[];
-        if (!preg_match($pattern_name, $massive['sex'])) {
+        if (!preg_match($pattern_sex, $massive['sex'])) {
             $err['sex'] = '<small class="text-danger">Здесь только русские буквы</small>';
             $err['flag'] = 1;
         }
@@ -142,6 +136,26 @@ class Registration extends Model
         return $err;
     }
 
+    public function validDate($massive)
+    {
+        $err=[];
+        $date=strtotime($massive['date_of_birth']);
+        $day=date('d', $date);
+        $month=date('m', $date);
+        $yaer=date('Y', $date);
+        if (!checkdate("$month", "$day", "$yaer")) {
+            $err['date_of_birth'] = '<small class="text-danger">Формат даты не верный!</small>';
+            $err['flag'] = 1;
+        }
+
+        if (empty($massive['date_of_birth'])) {
+            $err['date_of_birth'] = '<small class="text-danger">Поле не может быть пустым</small>';
+            $err['flag'] = 1;
+        }
+
+        return $err;
+    }
+
     public function save($massive)
     {
         $name=$massive['name'];
@@ -150,6 +164,7 @@ class Registration extends Model
         $email=$massive['email'];
         $password=$massive['password'];
         $phone=$massive['phone'];
+        $date_of_birth=$massive['date_of_birth'];
 
 
         $query = "INSERT INTO klient (
@@ -158,6 +173,7 @@ class Registration extends Model
         sex,
         email,
         pasword,
+        date_of_birth,
         tip_clienta_id)
         VALUES (
                 '$soname',
@@ -165,6 +181,7 @@ class Registration extends Model
                 '$sex',
                 '$email',
                 '$password',
+                '$date_of_birth',
                 1
          )";
         $user = $this->saveBD($query);

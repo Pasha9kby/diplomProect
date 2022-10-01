@@ -38,6 +38,11 @@ if(isset($_SESSION['err']))
         <? if(isset($err['sex'])){echo $err['sex'];} ?>
     </div>
     <div>
+        <label>Дата рождения</label>
+        <input name="date_of_birth" type="date" <?=(isset($_POST['date_of_birth']))?'value='.$_POST['date_of_birth']:"placeholder='введите дату'"?>>
+        <? if(isset($err['date_of_birth'])){echo $err['date_of_birth'];} ?>
+    </div>
+    <div>
          <label>пароль</label>
          <input type="password" name="password" <?=(isset($_POST['password']))?'value='.$_POST['password']:"placeholder='введите пароль'"?>>
         <? if(isset($err['password'])){echo $err['password'];} ?>

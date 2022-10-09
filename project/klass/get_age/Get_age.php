@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Class;
+namespace Project\Klass\Get_age;
 
 class Get_age
 {

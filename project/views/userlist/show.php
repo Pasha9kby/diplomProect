@@ -1,14 +1,5 @@
 <?php
-
-
-function get_age( $birthday ){
-
-    $diff = date( 'Ymd' ) - date( 'Ymd', strtotime($birthday) );
-
-    return substr( $diff, 0, -4 );
-}
-
-
+use Project\Klass\Get_age\Get_age;
 
 ?>
 
@@ -21,15 +12,15 @@ function get_age( $birthday ){
         <th>статус</th>
     </tr>
     <?foreach ($userlist as $value){?>
+
         <tr>
             <td>нет договора</td>
-            <td><? echo $value['familia'].$value['imy']; ?></td>
+            <td><a href="<?php echo "/user/".$value['id_client'].'/'?>"><? echo $value['familia'].$value['imy']; ?></a> </td>
             <td><? echo $value['sex']; ?></td>
-            <td><? if(!empty($value['date_of_birth'])){echo get_age($value['date_of_birth']);} ?></td>
+            <td><? if(!empty($value['date_of_birth'])){echo (new Get_age())->get_age($value['date_of_birth']);} ?></td>
             <td><? echo $value['name_tip_clienta']; ?></td>
         </tr>
 
         <?}?>
 </table>
 
-<pre><?//var_dump($userlist)?></pre>

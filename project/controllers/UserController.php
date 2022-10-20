@@ -24,7 +24,6 @@ if(!empty($_POST)) {
         $err = array_merge($err, $errMessage);
     }
 
-
     if ($err['flag'] == 0) {
         $val->save($valMassive);
         $id=$valMassive['id'];
@@ -34,11 +33,7 @@ if(!empty($_POST)) {
         session_start();
         $_SESSION['err'] = $err;
     }
-
-
 }
-
-
 
 class UserController extends Controller
 {

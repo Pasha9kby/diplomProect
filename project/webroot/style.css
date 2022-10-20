@@ -1,4 +1,5 @@
 /* CSS Document */
 .topInfo {
-    file-direction: row;
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,16 +1,16 @@
 <?php
-use Project\Klass\Get_age\Get_age;
-use Project\Klass\Age_to_str\Age_to_str;
-?>
 
-<p>Данные пользователя</p>
+use Project\Klass\Href\Href;
+use Project\Klass\topInfo\TopInfo;
 
-<div>
-    <div><a href="/user/main/<?=$userlist["id_client"]?>/">Личный кабинет</a></div>
-    <div><?=$userlist["name_tip_clienta"]?></div>
-    <div><?=$userlist["familia"]." ".$userlist["imy"]?><br> <?= (new Get_age())->get_age($userlist['date_of_birth']).(new Age_to_str())->agetostr((new Get_age())->get_age($userlist['date_of_birth']));?></div>
-</div><br>
-<div><a href="/user/redaction/<?=$userlist["id_client"]?>/"></a></div>
+$href=(new Href())->href("/user/main/$userlist[id_client]/", 'Вернуться на главную', 'hhh')
+                  ->href("/user/redactionanketa/$userlist[id_client]/", 'Редактировать анкету', '')
+                  ->listHref();
+echo (new TopInfo())->topInfo($userlist, $href); ?>
+
+
+
+
 <div>
     <div>Фамилия: <?=$userlist['familia']?></div>
     <div>Имя: <?=$userlist['imy']?></div>

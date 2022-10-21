@@ -27,6 +27,7 @@ class User extends Model
         $massive['message'] = $this->clear_data($_POST['message']);
         $massive['id'] = $this->clear_data($_POST['id']);
 
+
         return $massive;
     }
 

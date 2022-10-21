@@ -1,15 +1,8 @@
 <?php
 
-use Project\Klass\Href\Href;
 use Project\Klass\topInfo\TopInfo;
 
-$href=(new Href())->href("/user/main/$userlist[id_client]/", 'Вернуться на главную', 'hhh')
-                  ->href("/user/redactionanketa/$userlist[id_client]/", 'Редактировать анкету', '')
-                  ->listHref();
-echo (new TopInfo())->topInfo($userlist, $href); ?>
-
-
-
+echo (new TopInfo())->topInfo($userlist); ?>
 
 <div>
     <div>Фамилия: <?=$userlist['familia']?></div>
@@ -20,7 +13,7 @@ echo (new TopInfo())->topInfo($userlist, $href); ?>
     <div>электронная почта: <?=$userlist['email']?></div>
     <div>Номер телефона: <?//=$userlist['phone']?></div>
     <div>Серия и номер паспорта: <?=$userlist['pasport']?></div>
-    <div>Дата выдачи паспорта: <?=$userlist['data_pasporta_vidacha']?></div>
+    <div>Дата выдачи паспорта: <?= date('d-m-Y', strtotime($userlist['data_pasporta_vidacha']))?></div>
     <div>Фамилия латиницей: <?=$userlist['familia_latinica']?></div>
     <div>Имя латиницей: <?=$userlist['imy_latinica']?></div>
     <div>Прописка: <?=$userlist['propiska']?></div>

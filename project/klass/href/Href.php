@@ -18,9 +18,13 @@ class Href
 
     public function listHref(){
         foreach ($this->href as $item){
-           $href[]="<a href='$item[path]' class='$item[klass]'>$item[name]</a><br>";
+            if($_SERVER["REQUEST_URI"]==$item['path']){
+                $hrefArray[]= "<a href='$item[path]' class='$item[klass] currentPage'>$item[name]</a>";
+            } else{
+                $hrefArray[]= "<a href='$item[path]' class='$item[klass]'>$item[name]</a>";
+            }
         }
-        $hrefList=implode($href);
-        return $hrefList;
+        $href= implode('<br>', $hrefArray);
+        return $href;
     }
 }

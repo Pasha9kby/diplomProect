@@ -1,11 +1,8 @@
 <?php
 use Project\Klass\topInfo\TopInfo;
-use Project\Klass\Href\Href;
 
-$href=(new Href())->href("/user/anketa/$userlist[id_client]/", 'Анкета', 'tophref')
-                  ->href("/user/redaction/$userlist[id_client]/", 'Изменить данные о себе', 'tophref')
-                  ->listHref();
-echo (new TopInfo())->topInfo($userlist, $href);?>
+echo (new TopInfo())->topInfo($userlist);;?>
+
 <div>
     <div>
         <p>Написать сообщение</p>

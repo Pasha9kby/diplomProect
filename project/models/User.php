@@ -24,10 +24,9 @@ class User extends Model
     {
         $massive = [];
 
-        $massive['message'] = $this->clear_data($_POST['message']);
-        $massive['id'] = $this->clear_data($_POST['id']);
-
-
+        foreach ($_POST as $value=>$item){
+            $massive[$value]=$this->clear_data($item);
+        }
         return $massive;
     }
 

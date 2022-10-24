@@ -1,7 +1,7 @@
 <?php
 
 
-class validation
+class Validation
 {
     public function clear_data($val)
     {
@@ -43,6 +43,44 @@ class validation
             $err['flag'] = 1;
         }
         if(empty($textRUS)){
+            $err['name'] = '<small class="text-danger">Поле должно быть заполнено</small>';
+            $err['flag'] = 1;
+        }
+        return $err;
+    }
+
+    public function validTextEn($textEn, $long)
+    {
+        $pattern_name = '~[A-Z][a-z]~';
+        $err=[];
+        if (!preg_match($pattern_name, $textEn)) {
+            $err['name'] = '<small class="text-danger">Здесь только латинские буквы</small>';
+            $err['flag'] = 1;
+        }
+        if (mb_strlen($textEn) > $long || empty($textEn)) {
+            $err['name'] = "<small class='text-danger'>поле должно быть не больше $long символов</small>";
+            $err['flag'] = 1;
+        }
+        if(empty($textEn)){
+            $err['name'] = '<small class="text-danger">Поле должно быть заполнено</small>';
+            $err['flag'] = 1;
+        }
+        return $err;
+    }
+
+    public function validTextAndNum($text, $long)
+    {
+        $pattern_name = '~[А-ЯЁ][а-яё][A-Z][a-z][0-9]~';
+        $err=[];
+        if (!preg_match($pattern_name, $text)) {
+            $err['name'] = '<small class="text-danger">Здесь только буквы и цифры</small>';
+            $err['flag'] = 1;
+        }
+        if (mb_strlen($text) > $long || empty($text)) {
+            $err['name'] = "<small class='text-danger'>поле должно быть не больше $long символов</small>";
+            $err['flag'] = 1;
+        }
+        if(empty($text)){
             $err['name'] = '<small class="text-danger">Поле должно быть заполнено</small>';
             $err['flag'] = 1;
         }
@@ -113,12 +151,12 @@ class validation
         $month=date('m', $date);
         $yaer=date('Y', $date);
         if (!checkdate("$month", "$day", "$yaer")) {
-            $err['date_of_birth'] = '<small class="text-danger">Формат даты не верный!</small>';
+            $err['date'] = '<small class="text-danger">Формат даты не верный!</small>';
             $err['flag'] = 1;
         }
 
-        if (empty($massive['date_of_birth'])) {
-            $err['date_of_birth'] = '<small class="text-danger">Поле не может быть пустым</small>';
+        if (empty($massive['date'])) {
+            $err['date'] = '<small class="text-danger">Поле не может быть пустым</small>';
             $err['flag'] = 1;
         }
 

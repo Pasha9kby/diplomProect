@@ -3,6 +3,7 @@
 namespace Project\Controllers;
 use Core\Controller;
 use Project\Models\User;
+use Project\Klass\Validaition\Validaition;
 
 if(!empty($_POST)) {
     $err = [];
@@ -10,7 +11,7 @@ if(!empty($_POST)) {
     $massive = $_POST;
 
     $val = new User();
-    $valMassive = $val->validaition($massive);
+    $valMassive = $val->validaition();
     $valMassive['id']= $massive['id'];
 
     if(!empty($massive['autor'])){

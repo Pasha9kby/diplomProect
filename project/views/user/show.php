@@ -9,7 +9,7 @@ echo (new TopInfo())->topInfo($userlist);;?>
         <form action="" method="POST">
             <textarea name="message"></textarea><? if(isset($err['message'])){echo $err['message'];} ?><br>
             <input type="hidden" name="id" value="<?=$userlist["id_client"]?>">
-            <button type="submit" class="submit" name="submit">Отправить</button>
+            <button type="submit" class="submit" name="submitMessage">Отправить</button>
         </form>
     </div>
     <div>

@@ -194,6 +194,16 @@ class Registration extends Model
                     '$phone'
         )";
         $userphone = $this->saveBD($query);
+
+        $query = "INSERT INTO hash (
+                   id_client,
+                   pasword) 
+                   VALUE (
+                    '$id',
+                    '$password'
+        )";
+        $userhash = $this->saveBD($query);
+
         return $id;
     }
 }

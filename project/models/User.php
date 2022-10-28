@@ -20,37 +20,12 @@ class User extends Model
         return $userlist;
     }
 
-    public function validaition()
-    {
-        $massive = [];
-
-        foreach ($_POST as $value=>$item){
-            $massive[$value]=$this->clear_data($item);
-        }
-        return $massive;
-    }
-
-    public function validMessage($massive){
-        $err=[];
-        if (mb_strlen($massive['message']) > 250 || empty($massive['message'])) {
-            $err['message'] = '<small class="text-danger">Сообщение должно быть не больше 250 символов</small>';
-            $err['flag'] = 1;
-            return $err;
-        }
-        if(empty($massive['message'])){
-            $err['message'] = '<small class="text-danger">Сообщение не должно быть пустым</small>';
-            $err['flag'] = 1;
-            return $err;
-        }
-    }
-
-    public function save($massive)
+    public function saveMessage($massive)
     {
         $message=$massive['message'];
         $id_client=$massive['id'];
         $id_autor=$massive['autor'];
         $date=date('Y-m-d H:i',time());
-
 
         $query = "INSERT INTO message (
         id_client,
@@ -72,6 +47,47 @@ class User extends Model
         $query="SELECT * FROM message WHERE id_client = $id_client ORDER BY date_message DESC";
         $list=$this->findMany($query);
         return $list;
+    }
+
+    public function saveUserInfo($massive)
+    {
+        $name=$massive['name'];
+        $soname=$massive['soname'];
+        $sex=$massive['sex'];
+        $email=$massive['email'];
+        $phone=$massive['phone'];
+        $date_of_birth=$massive['date_of_birth'];
+        $id=$massive['id'];
+        $pasport=$massive['pasport'];
+        $datePasport=$massive['data_pasporta_vidacha'];
+        $familiaLatinica=$massive['familia_latinica'];
+        $imyLatinica=$massive['imy_latinica'];
+        $propiska=$massive['propiska'];
+        $otchestvo=$massive['otchestvo'];
+
+        $query = "UPDATE klient SET 
+        familia = '$soname',
+        imy = '$name',
+        sex = '$sex',
+        email = '$email',
+        date_of_birth = '$date_of_birth',
+        otchestvo = '$otchestvo',
+        pasport = '$pasport',
+        familia_latinica = '$familiaLatinica',
+        imy_latinica = '$imyLatinica',
+        propiska = '$propiska',
+        data_pasporta_vidacha = '$datePasport'
+        WHERE id_client = '$id'";
+        $user = $this->saveBD($query);
+
+        if(!empty($phone)){
+            $query = "UPDATE phone SET
+                   phone = '$phone' 
+                  WHERE id_client = '$id'";
+            $userphone = $this->saveBD($query);
+        }
+
+        return $id;
     }
 
 

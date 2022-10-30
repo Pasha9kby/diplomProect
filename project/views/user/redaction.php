@@ -1,51 +1,44 @@
 <?php
 use Project\Klass\topInfo\TopInfo;
-use Project\Klass\postOrMassive\PostOrMassive;
 
 if(isset($_SESSION['err'])){
     $err=$_SESSION['err'];
 }
 
-$value = new PostOrMassive();
-echo "ПРОВЕРКА ".$value->postOrMassive($_POST['soname'], $userlist['familia'], 'фамилию' );
-if(isset($_POST['soname']) and !empty($_POST['soname'])){$valueTest="value = '$_POST[soname]'";}
-            elseif (!empty($userlist['familia'])){$valueTest="value = '$userlist[familia]";}
-            else{$valueTest="placeholder = 'введите фамилию'";}
-echo "<br>ЗНАЧЕНИЕ ".$valueTest;
 echo (new TopInfo())->topInfo($userlist);
-?><pre><?var_dump($userlist);?></pre>
+?>
 
 <div>
     <form action="" method="POST">
         <div>
             <label>фамилия</label>
-            <input name="soname" type="text" <? echo $value->postOrMassive($_POST['soname'], $userlist['familia'], 'фамилию' )?>>
+            <input name="soname" type="text" value="<?=$_POST['soname']??$userlist['familia']??''?>" placeholder="введите фамилию">
             <? if(!empty($err['soname'])){echo $err['soname'];} ?>
         </div>
         <div>
             <label>имя</label>
-            <input name="name" type="text" <?=$value->postOrMassive($_POST['name'], $userlist['imy'], 'введите имя' )?>>
+            <input name="name" type="text" value="<?=$_POST['name']??$userlist['imy']??''?>" placeholder="введите фамилию">
             <? if(!empty($err['name'])){echo $err['name'];} ?>
         </div>
         <div>
             <label>отчество</label>
-            <input name="otchestvo" type="text" <?=$value->postOrMassive($_POST['otchestvo'], $userlist['otchestvo'], 'введите отчество' )?>>
+            <input name="otchestvo" type="text" value="<?=$_POST['otchestvo']??$userlist['otchestvo']??''?>" placeholder="введите отчество">
             <? if(!empty($err['otchestvo'])){echo $err['otchestvo'];} ?>
         </div>
         <div>
             <label>телефон</label>
-            <input name="phone" type="tel" <?=$value->postOrMassive($_POST['phone'], $userlist['phone'], 'введите номер в формате +375291111111' )?>>
+            <input name="phone" type="tel" value="<?=$_POST['phone']??$userlist['phone']??''?>" placeholder="введите номер в формате +375291111111">
             <? if(!empty($err['phone'])){echo $err['phone'];} ?>
         </div>
         <div>
             <label>e-mail</label>
-            <input name="email" type="email" <?=$value->postOrMassive($_POST['email'], $userlist['email'], 'введите email' )?>>
+            <input name="email" type="email" value="<?=$_POST['email']??$userlist['email']??''?>" placeholder="введите email">
             <? if(!empty($err['email'])){echo $err['email'];} ?>
         </div>
         <div>
             <label>Пол</label>
             <select name="sex" type="text" >
-                <? $item=$value->postOrMassiveForSelect($_POST['sex'], $userlist['sex']);
+                <? $item=$_POST['sex']?? $userlist['sex']??null;
                 if(empty($item)){
                     echo " <option></option>
                 <option>М</option>
@@ -56,39 +49,38 @@ echo (new TopInfo())->topInfo($userlist);
                            <option>Ж</option>";
                 }
                 else{echo " <option selected='selected'>Ж</option>
-                            <option>М</option>
-                           "; }?>
+                            <option>М</option>"; }?>
             </select>
             <? if(!empty($err['sex'])){echo $err['sex'];} ?>
         </div>
         <div>
             <label>Дата рождения</label>
-            <input name="date_of_birth" type="date" <?=$value->postOrMassive($_POST['date_of_birth'], $userlist['date_of_birth'], 'введите дату' )?>>
+            <input name="date_of_birth" type="date" value="<?=$_POST['date_of_birth']??$userlist['date_of_birth']??''?>" placeholder="введите дату рождения">
             <? if(!empty($err['date_of_birth'])){echo $err['date_of_birth'];} ?>
         </div>
         <div>
             <label>Серия и номер паспорта</label>
-            <input name="pasport" type="text" <?=$value->postOrMassive($_POST['pasport'], $userlist['pasport'], 'введите серию и номер паспорта' )?>>
+            <input name="pasport" type="text" value="<?=$_POST['pasport']??$userlist['pasport']??''?>" placeholder="серия и номер паспорта">
             <? if(!empty($err["pasport"])){echo $err["pasport"];}  ?>
         </div>
         <div>
             <label>Дата выдачи паспорта</label>
-            <input name="data_pasporta_vidacha" type="date" <?=$value->postOrMassive($_POST['data_pasporta_vidacha'], $userlist['data_pasporta_vidacha'], 'введите дату выдачи паспорта' )?>>
+            <input name="data_pasporta_vidacha" type="date" value="<?=$_POST['data_pasporta_vidacha']??$userlist['data_pasporta_vidacha']??''?>" placeholder="введите дату выдачи паспорта">
             <? if(!empty($err['data_pasporta_vidacha'])){echo $err['data_pasporta_vidacha'];} ?>
         </div>
         <div>
             <label>Фамилия латиницей</label>
-            <input name="familia_latinica" type="text" <?=$value->postOrMassive($_POST['familia_latinica'], $userlist['familia_latinica'], 'введите фамилию латиницей' )?>>
+            <input name="familia_latinica" type="text" value="<?=$_POST['familia_latinica']??$userlist['familia_latinica']??''?>" placeholder="введите фамилию латиницей">
             <? if(!empty($err['familia_latinica'])){echo $err['familia_latinica'];} ?>
         </div>
         <div>
             <label>Имя латиницей</label>
-            <input name="imy_latinica" type="text" <?=$value->postOrMassive($_POST['imy_latinica'], $userlist['imy_latinica'], 'введите имя латиницей' )?>>
+            <input name="imy_latinica" type="text" value="<?=$_POST['imy_latinica']??$userlist['imy_latinica']??''?>" placeholder="введите имя латиницей">
             <? if(!empty($err['imy_latinica'])){echo $err['imy_latinica'];} ?>
         </div>
         <div>
             <label>Прописка</label>
-            <input name="propiska" type="text" <?=$value->postOrMassive($_POST['propiska'], $userlist['propiska'], 'введите прописку' )?>>
+            <input name="propiska" type="text" value="<?=$_POST['propiska']??$userlist['propiska']??''?>" placeholder="введите прописку">
             <? if(!empty($err['propiska'])){echo $err['propiska'];} ?>
         </div>
         <input type="hidden" name="id" value="<?=$userlist["id_client"]?>">

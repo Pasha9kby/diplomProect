@@ -51,19 +51,19 @@ class User extends Model
 
     public function saveUserInfo($massive)
     {
-        $name=$massive['name'];
-        $soname=$massive['soname'];
-        $sex=$massive['sex'];
-        $email=$massive['email'];
-        $phone=$massive['phone'];
-        $date_of_birth=$massive['date_of_birth'];
+        $name=$massive['name']??null;
+        $soname=$massive['soname']??null;
+        $sex=$massive['sex']??null;
+        $email=$massive['email']??null;
+        $phone=$massive['phone']??null;
+        $date_of_birth=$massive['date_of_birth']??null;
         $id=$massive['id'];
-        $pasport=$massive['pasport'];
-        $datePasport=$massive['data_pasporta_vidacha'];
-        $familiaLatinica=$massive['familia_latinica'];
-        $imyLatinica=$massive['imy_latinica'];
-        $propiska=$massive['propiska'];
-        $otchestvo=$massive['otchestvo'];
+        $pasport=$massive['pasport']??null;
+        $datePasport=$massive['data_pasporta_vidacha']??null;
+        $familiaLatinica=$massive['familia_latinica']??null;
+        $imyLatinica=$massive['imy_latinica']??null;
+        $propiska=$massive['propiska']??null;
+        $otchestvo=$massive['otchestvo']??null;
 
         $query = "UPDATE klient SET 
         familia = '$soname',

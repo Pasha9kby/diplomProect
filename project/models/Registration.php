@@ -172,7 +172,6 @@ class Registration extends Model
         imy,
         sex,
         email,
-        pasword,
         date_of_birth,
         tip_clienta_id)
         VALUES (
@@ -180,7 +179,6 @@ class Registration extends Model
                 '$name',
                 '$sex',
                 '$email',
-                '$password',
                 '$date_of_birth',
                 1
          )";
@@ -197,7 +195,7 @@ class Registration extends Model
 
         $query = "INSERT INTO hash (
                    id_client,
-                   pasword) 
+                   hash) 
                    VALUE (
                     '$id',
                     '$password'

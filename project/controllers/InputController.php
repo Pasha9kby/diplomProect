@@ -14,10 +14,10 @@ if(!empty($_POST['email'])){
     $user=$val->user($valMassive['email']);
 
     if (!empty($user)) {
-        $hash = $user['pasword'];
+        $hash = $user['hash'];
         if (password_verify($_POST['password'], $hash)) {
 
-//            header('Location: ' . $new_url);
+           header('Location: ' . $new_url);
             $err = 'все отлично';
         } else {
             $err = 'пароль не подошел';

@@ -26,16 +26,13 @@ if(!empty($_POST)) {
 
         if (!empty($errMessage)) {
             $err = array_merge($err, $errMessage);
+            session_start();
+            $_SESSION['err'] = $err;
         }
-
-        if ($err['flag'] == 0) {
-            (new User())->saveMessage($valMassive);
+        else{(new User())->saveMessage($valMassive);
             $id=$valMassive['id'];
             $new_url = "/user/main/$id/";
             header('Location: ' . $new_url);
-        }else {
-            session_start();
-            $_SESSION['err'] = $err;
         }
     }
 

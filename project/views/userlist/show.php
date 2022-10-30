@@ -1,8 +1,11 @@
 <?php
 use Project\Klass\Get_age\Get_age;
+use Project\Klass\pagination\Pagination;
 
+$_GET['page']=4;
+$pagination= new Pagination();
+echo "вывод пагинации".$pagination->pagination(3)
 ?>
-
 <table  border="1">
     <tr>
         <th>номер договора</th>

@@ -1,10 +1,12 @@
 <?php
 use Project\Klass\topInfo\TopInfo;
+use Project\Klass\UserInfo\UserInfo;
 
 if(isset($_SESSION['err'])){
     $err=$_SESSION['err'];
 }
 
+echo (new UserInfo())->userInfo($_SESSION['id']);
 echo (new TopInfo())->topInfo($userlist);
 ?>
 

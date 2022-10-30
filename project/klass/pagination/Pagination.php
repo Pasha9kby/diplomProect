@@ -15,6 +15,6 @@ class Pagination extends Model
        }
 
        $from=($page-1)*$notesOnPage;
-       $query="SELECT"
+       $query="SELECT * FROM klient WHERE id_client>0 LIMIT ";
     }
 }

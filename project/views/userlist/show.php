@@ -1,10 +1,9 @@
 <?php
 use Project\Klass\Get_age\Get_age;
-use Project\Klass\pagination\Pagination;
+use Project\Klass\UserInfo\UserInfo;
+session_start();
 
-$_GET['page']=4;
-$pagination= new Pagination();
-echo "вывод пагинации".$pagination->pagination(3)
+echo (new UserInfo())->userInfo($_SESSION['id']);
 ?>
 <table  border="1">
     <tr>

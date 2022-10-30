@@ -8,7 +8,7 @@ use Core\Model;
 class Input extends Model
 {
     public function user($email){
-        $query = "SELECT hash FROM hash
+        $query = "SELECT * FROM hash
                     JOIN klient 
                     ON klient.id_client = hash.id_client
                     WHERE klient.email='$email'";

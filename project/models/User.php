@@ -8,7 +8,23 @@ use Core\Model;
 class User extends Model
 {
     public function user($id){
-        $query="SELECT * FROM klient 
+        $query="SELECT klient.id_client, 
+                       klient.tip_clienta_id, 
+                       Klient.familia,
+                       klient.imy,
+                       klient.otchestvo,
+                       klient.sex,
+                       klient.date_of_birth,
+                       Klient.email,
+                       klient.pasport,
+                       klient.familia_latinica,
+                       klient.imy_latinica,
+                       klient.propiska,
+                       klient.data_pasporta_vidacha,
+                       klient.registration,
+                       tip_clienta.name_tip_clienta,
+                       phone.phone
+                         FROM klient 
                          LEFT JOIN tip_clienta
                          ON klient.tip_clienta_id = tip_clienta.id_tip_clienta
                          LEFT JOIN phone

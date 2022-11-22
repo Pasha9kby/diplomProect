@@ -2,10 +2,10 @@
 namespace Project\Controllers;
 use core\controller;
 use \Project\Models\Input;
-session_start();
+//session_start();
 
 if(!empty($_POST['email'])){
-    $new_url = '/userlist/1/';
+    $new_url = '/userlist/';
     $massive[] = $_POST;
 
     $val = new Input();
@@ -15,10 +15,11 @@ if(!empty($_POST['email'])){
     if (!empty($user)) {
         $hash = $user['hash'];
         if (password_verify($_POST['password'], $hash)) {
+            session_start();
             $_SESSION['auth']=true;
             $_SESSION['id']=$user['id_client'];
             $_SESSION['status']=$user['tip_clienta_id'];
-           header('Location: ' . $new_url);
+            header('Location: ' . $new_url);
 
         } else {
             $err = '<p class="currentPage">Не правильное сочетание логин/пароль</p>';

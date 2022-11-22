@@ -22,7 +22,7 @@ if(!empty($_POST)) {
             $valMassive['autor']=1;
         }
 
-        $errMessage = $val->validMessage($valMassive['message'], 250);
+        $errMessage = $val->validMessage($valMassive['message'], 250,1);
 
         if (!empty($errMessage)) {
             $err = array_merge($err, $errMessage);
@@ -98,9 +98,9 @@ if(!empty($_POST)) {
             $err['flag']=1;
         }
 
-
         if ($err['flag'] == 0) {
             (new User())->saveUserInfo($valMassive);
+            unset($_POST['submitRedaction']);
             $id=$valMassive['id'];
             $new_url = "/user/anketa/$id/";
             header('Location: ' . $new_url);

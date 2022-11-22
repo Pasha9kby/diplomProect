@@ -160,7 +160,7 @@ class Validation
 
     public function validMessage($message, $long, $requiredField=0){
         $err=[];
-        if (mb_strlen($message) > $long || empty($message)) {
+        if (mb_strlen($message) > $long and !empty($message)) {
             $err['message'] = "<small class='text-danger'>Сообщение должно быть не больше $long символов</small>";
             $err['flag'] = 1;
             return $err;

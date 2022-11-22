@@ -1,9 +1,9 @@
 <?php
 use Project\Klass\Get_age\Get_age;
 use Project\Klass\UserInfo\UserInfo;
-session_start();
-
-echo (new UserInfo())->userInfo($_SESSION['id']);
+//session_start();
+//var_dump($_SESSION);
+//echo (new UserInfo())->userInfo($_SESSION['id']);
 ?>
 <table  border="1">
     <tr>
@@ -25,4 +25,6 @@ echo (new UserInfo())->userInfo($_SESSION['id']);
 
         <?}?>
 </table>
+
+<? echo $navigationPage; ?>
 

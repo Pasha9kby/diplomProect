@@ -96,15 +96,24 @@ class User extends Model
         WHERE id_client = '$id'";
         $user = $this->saveBD($query);
 
+        $query="SELECT * FROM phone WHERE id_client=$id";
+        $result=$this->findOne($query);
         if(!empty($phone)){
-            $query = "UPDATE phone SET
+            if(isset($result)){
+                $query = "UPDATE phone SET
                    phone = '$phone' 
                   WHERE id_client = '$id'";
-            $userphone = $this->saveBD($query);
+                $userphone = $this->saveBD($query);
+            } else {
+                $query="INSERT INTO phone (
+                   id_client,
+                   phone)
+                   VALUE (
+                    $id, 
+                    $phone)";
+                $userphone = $this->saveBD($query);
+            }
         }
-
         return $id;
     }
-
-
 }

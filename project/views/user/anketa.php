@@ -2,9 +2,9 @@
 
 use Project\Klass\topInfo\TopInfo;
 use Project\Klass\UserInfo\UserInfo;
-session_start();
+//session_start();
 
-echo (new UserInfo())->userInfo($_SESSION['id']);
+//echo (new UserInfo())->userInfo($_SESSION['id']);
 echo (new TopInfo())->topInfo($userlist); ?>
 
 <div>

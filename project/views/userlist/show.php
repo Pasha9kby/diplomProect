@@ -1,9 +1,5 @@
 <?php
 use Project\Klass\Get_age\Get_age;
-use Project\Klass\UserInfo\UserInfo;
-//session_start();
-//var_dump($_SESSION);
-//echo (new UserInfo())->userInfo($_SESSION['id']);
 ?>
 <table  border="1">
     <tr>

@@ -1,3 +1,6 @@
+<?php
+use Project\Klass\UserInfo\UserInfo;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,6 +92,8 @@
 <!--        левый сайдбар-->
 <!--    </aside>-->
     <main>
+        <?
+        echo ($_SESSION['auth']==true)?((new UserInfo())->userInfo($_SESSION['id'])):false;?>
         <?= $content ?>
     </main>
 <!--    <aside class="sidebar right">-->

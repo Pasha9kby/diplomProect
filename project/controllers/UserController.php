@@ -4,6 +4,7 @@ namespace Project\Controllers;
 use Core\Controller;
 use Project\Models\User;
 use Project\Klass\Validation\Validation;
+use Project\Klass\Pagination\Pagination;
 
 
 if(!empty($_POST)) {
@@ -120,6 +121,18 @@ class UserController extends Controller
 
         return $this->render('user/show', ['userlist'=>(new User())->user($params['var1']),
                                                 'list'=>(new User())->list($params['var1'])]);
+    }
+
+    public function showMain($params){
+        $queryArray="SELECT * FROM message WHERE id_client = $params[var1] ORDER BY date_message DESC
+                          ";
+        $queryCount="SELECT COUNT(*) as count FROM message WHERE id_client = $params[var1]";
+        $list=(new Pagination(1,5))->users($queryArray);
+        $navigationPage=(new Pagination(1,5))
+            ->pageCount($queryCount);
+        return $this->render('user/show', ['userlist'=>(new User())->user($params['var1']),
+                                                'list'=>$list,
+                                                'navigationPage'=>$navigationPage]);
     }
 
     public function anketa($params){

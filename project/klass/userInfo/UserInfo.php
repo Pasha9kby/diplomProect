@@ -12,9 +12,9 @@ class UserInfo extends Model
 
         $info="
 <div class='userInfo'>
-     <div>Вы вошли как $user[imy] $user[familia]</div>  
-
+     <div>Вы вошли как $user[imy] $user[familia]</div><br>  
 </div>
+ <div class='userInfo'><a href='exit/'>Выйти</a></div>
         ";
         return $info;
     }

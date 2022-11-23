@@ -2,10 +2,12 @@
 namespace Project\Controllers;
 use core\controller;
 use \Project\Models\Input;
-//session_start();
+
+$new_url = '/userlist/';
+
+($_SESSION['auth']==true)?(header('Location: ' . $new_url)):false;
 
 if(!empty($_POST['email'])){
-    $new_url = '/userlist/';
     $massive[] = $_POST;
 
     $val = new Input();

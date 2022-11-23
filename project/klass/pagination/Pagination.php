@@ -2,7 +2,7 @@
 
 
 namespace Project\Klass\Pagination;
-use Core\Model;
+use \Core\Model;
 
 class Pagination extends Model
 {
@@ -11,30 +11,20 @@ class Pagination extends Model
 
     public function __construct($page=1, $notesOnPage=10)
     {
+        parent::__construct();
         $this->page=$page;
         $this->notesOnPage=$notesOnPage;
     }
 
     public function users($queryArray){
-
         $from=($this->page-1)*$this->notesOnPage;
-
         $query=$queryArray."LIMIT $from, $this->notesOnPage";
-        echo "вызов массива ".$query;
-
-//        $query="SELECT * FROM klient
-//                         LEFT JOIN tip_clienta
-//                         ON tip_clienta_id = id_tip_clienta
-//                         LIMIT $from, $notesOnPage";
-
         $userlist=$this->findMany($query);
 
         return $userlist;
     }
 
-    public function pageCount(){
-        $query="SELECT COUNT(*) as count FROM klient";
-        //echo "<br>вывод на количество ".$queryCount;
+    public function pageCount($query){
         $count=$this->findMany($query);
         $pageCount=ceil($count[0]['count']/$this->notesOnPage);
         if($this->page==1){ $navigationPage="<div> ";}
@@ -55,4 +45,6 @@ class Pagination extends Model
 
         return $navigationPage;
     }
+
+
 }

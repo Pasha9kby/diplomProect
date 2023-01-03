@@ -31,8 +31,8 @@ class UserlistController extends Controller
                           ON tip_clienta_id = id_tip_clienta 
                           ";
         $queryCount="SELECT COUNT(*) as count FROM klient";
-        $userlist=(new Pagination(1,10))->users($queryArray);
-        $navigationPage=(new Pagination(1,10))
+        $userlist=(new Pagination(1,5))->users($queryArray);
+        $navigationPage=(new Pagination(1,5))
             ->pageCount($queryCount);
         $userTopInfo=(new UserInfo())->userInfo($_SESSION['id']);
         return $this->render('userlist/show', ['userlist'=>$userlist,

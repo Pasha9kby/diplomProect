@@ -20,14 +20,17 @@ echo (new TopInfo())->topInfo($userlist);?>
     </div>
     <div>
         <p>история сообщений</p>
-        <?foreach ($list as $item){?>
-        <div>
-            <div class="small_text"><?= date( 'd-m-Y H:i', strtotime($item['date_message']));?></div>
-            <div><?= $item['message']?></div>
-        </div>
-        <?}?>
-        <? echo $navigationPage; ?>
+        <?
+        if(!empty($list)){
+        foreach ($list as $item){?>
+            <div>
+                <div class="small_text"><?= date( 'd-m-Y H:i', strtotime($item['date_message']));?></div>
+                <div><?= $item['message']?></div>
+            </div>
+        <?}
+        echo $navigationPage;
+        }?>
+
     </div>
 
 </div>
-

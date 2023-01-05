@@ -75,7 +75,7 @@ class User extends Model
         $date_of_birth=$massive['date_of_birth']??null;
         $id=$massive['id'];
         $pasport=$massive['pasport']??null;
-        $datePasport=$massive['data_pasporta_vidacha']??null;
+        $datePasport=!isset($massive['data_pasporta_vidacha'])?$massive['data_pasporta_vidacha']:null;
         $familiaLatinica=$massive['familia_latinica']??null;
         $imyLatinica=$massive['imy_latinica']??null;
         $propiska=$massive['propiska']??null;

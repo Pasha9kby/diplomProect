@@ -106,7 +106,7 @@ if(!empty($_POST)) {
             $new_url = "/user/anketa/$id/";
             header('Location: ' . $new_url);
         }else {
-            session_start();
+            //session_start();
             $_SESSION['err'] = $err;
         }
     }
@@ -118,14 +118,21 @@ class UserController extends Controller
     public $title = "кабинет пользователя";
 
     public function show($params){
-
+        $page=explode('page', $params['var2']);
+        $page=$page[1];
+        $queryArray="SELECT * FROM message WHERE id_client = $params[var1] ORDER BY date_message DESC ";
+        $queryCount="SELECT COUNT(*) as count FROM message WHERE id_client = $params[var1]";
+        $list=(new Pagination($page,5))->users($queryArray);
+        $navigationPage=(new Pagination($page,5))
+            ->pageCount($queryCount);
         return $this->render('user/show', ['userlist'=>(new User())->user($params['var1']),
-                                                'list'=>(new User())->list($params['var1'])]);
+            'list'=>$list,
+            'navigationPage'=>$navigationPage]);
     }
 
     public function showMain($params){
         $queryArray="SELECT * FROM message WHERE id_client = $params[var1] ORDER BY date_message DESC
-                          ";
+";
         $queryCount="SELECT COUNT(*) as count FROM message WHERE id_client = $params[var1]";
         $list=(new Pagination(1,5))->users($queryArray);
         $navigationPage=(new Pagination(1,5))

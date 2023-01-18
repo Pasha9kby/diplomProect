@@ -1,8 +1,6 @@
 <?php
 use Project\Klass\Get_age\Get_age;
-
 ?>
-
 <table  border="1">
     <tr>
         <th>номер договора</th>
@@ -23,4 +21,6 @@ use Project\Klass\Get_age\Get_age;
 
         <?}?>
 </table>
+
+<? echo $navigationPage; ?>
 

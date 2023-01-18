@@ -4,6 +4,7 @@ if(isset($_SESSION['err']))
     $err=$_SESSION['err'];
 }
 
+
 ?>
 
 
@@ -30,12 +31,19 @@ if(isset($_SESSION['err']))
     </div>
     <div>
         <label>Пол</label>
-        <select name="sex" type="text" <?=(isset($_POST['sex']))?'value='.$_POST['sex']:""?>>
+        <select name="sex" type="text">
+            <?if(!isset($_POST['sex'])){
+                echo '
             <option></option>
             <option>М</option>
-            <option>Ж</option>
+            <option>Ж</option>';
+            } elseif ($_POST['sex']=='М'){
+                echo " <option selected='selected'>М</option>
+                       <option>Ж</option>";
+            } else{ echo " <option selected='selected'>Ж</option>
+                            <option>М</option>";
+            }?>
         </select>
-        <? if(isset($err['sex'])){echo $err['sex'];} ?>
     </div>
     <div>
         <label>Дата рождения</label>

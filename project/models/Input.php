@@ -8,7 +8,10 @@ use Core\Model;
 class Input extends Model
 {
     public function user($email){
-        $query = "SELECT * FROM klient WHERE email='$email'";
+        $query = "SELECT * FROM hash
+                    JOIN klient 
+                    ON klient.id_client = hash.id_client
+                    WHERE klient.email='$email'";
         $user = $this->findOne($query);
         return $user;
     }

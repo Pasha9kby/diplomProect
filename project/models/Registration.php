@@ -172,7 +172,6 @@ class Registration extends Model
         imy,
         sex,
         email,
-        pasword,
         date_of_birth,
         tip_clienta_id)
         VALUES (
@@ -180,7 +179,6 @@ class Registration extends Model
                 '$name',
                 '$sex',
                 '$email',
-                '$password',
                 '$date_of_birth',
                 1
          )";
@@ -194,6 +192,16 @@ class Registration extends Model
                     '$phone'
         )";
         $userphone = $this->saveBD($query);
+
+        $query = "INSERT INTO hash (
+                   id_client,
+                   hash) 
+                   VALUE (
+                    '$id',
+                    '$password'
+        )";
+        $userhash = $this->saveBD($query);
+
         return $id;
     }
 }

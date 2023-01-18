@@ -1,12 +1,13 @@
 <?php
-
-
 namespace Project\Controllers;
 use core\controller;
 use \Project\Models\Input;
 
+$new_url = '/userlist/';
+
+($_SESSION['auth']==true)?(header('Location: ' . $new_url)):false;
+
 if(!empty($_POST['email'])){
-    $new_url = '/userlist/';
     $massive[] = $_POST;
 
     $val = new Input();
@@ -14,16 +15,19 @@ if(!empty($_POST['email'])){
     $user=$val->user($valMassive['email']);
 
     if (!empty($user)) {
-        $hash = $user['pasword'];
+        $hash = $user['hash'];
         if (password_verify($_POST['password'], $hash)) {
+            session_start();
+            $_SESSION['auth']=true;
+            $_SESSION['id']=$user['id_client'];
+            $_SESSION['status']=$user['tip_clienta_id'];
+            header('Location: ' . $new_url);
 
-//            header('Location: ' . $new_url);
-            $err = 'все отлично';
         } else {
-            $err = 'пароль не подошел';
+            $err = '<p class="currentPage">Не правильное сочетание логин/пароль</p>';
         }
     } else {
-        $err = 'логин не подошел';
+        $err = '<p class="currentPage">Не правильное сочетание логин/пароль</p>';
     }
     $_SESSION['err']=$err;
 }

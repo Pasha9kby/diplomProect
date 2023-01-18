@@ -3,6 +3,15 @@
     display: flex;
     justify-content: space-between;
 }
+.userInfo {
+    display: flex;
+    justify-content: flex-end;
+}
 .currentPage {
     color: red;
 }
+
+.click {
+    color: darkred;
+}
+

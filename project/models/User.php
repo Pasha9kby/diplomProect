@@ -8,7 +8,23 @@ use Core\Model;
 class User extends Model
 {
     public function user($id){
-        $query="SELECT * FROM klient 
+        $query="SELECT klient.id_client, 
+                       klient.tip_clienta_id, 
+                       Klient.familia,
+                       klient.imy,
+                       klient.otchestvo,
+                       klient.sex,
+                       klient.date_of_birth,
+                       Klient.email,
+                       klient.pasport,
+                       klient.familia_latinica,
+                       klient.imy_latinica,
+                       klient.propiska,
+                       klient.data_pasporta_vidacha,
+                       klient.registration,
+                       tip_clienta.name_tip_clienta,
+                       phone.phone
+                         FROM klient 
                          LEFT JOIN tip_clienta
                          ON klient.tip_clienta_id = tip_clienta.id_tip_clienta
                          LEFT JOIN phone
@@ -20,38 +36,12 @@ class User extends Model
         return $userlist;
     }
 
-    public function validaition()
-    {
-        $massive = [];
-
-        $massive['message'] = $this->clear_data($_POST['message']);
-        $massive['id'] = $this->clear_data($_POST['id']);
-
-
-        return $massive;
-    }
-
-    public function validMessage($massive){
-        $err=[];
-        if (mb_strlen($massive['message']) > 250 || empty($massive['message'])) {
-            $err['message'] = '<small class="text-danger">Сообщение должно быть не больше 250 символов</small>';
-            $err['flag'] = 1;
-            return $err;
-        }
-        if(empty($massive['message'])){
-            $err['message'] = '<small class="text-danger">Сообщение не должно быть пустым</small>';
-            $err['flag'] = 1;
-            return $err;
-        }
-    }
-
-    public function save($massive)
+    public function saveMessage($massive)
     {
         $message=$massive['message'];
         $id_client=$massive['id'];
         $id_autor=$massive['autor'];
         $date=date('Y-m-d H:i',time());
-
 
         $query = "INSERT INTO message (
         id_client,
@@ -75,5 +65,55 @@ class User extends Model
         return $list;
     }
 
+    public function saveUserInfo($massive)
+    {
+        $name=$massive['name']??null;
+        $soname=$massive['soname']??null;
+        $sex=$massive['sex']??null;
+        $email=$massive['email']??null;
+        $phone=$massive['phone']??null;
+        $date_of_birth=$massive['date_of_birth']??null;
+        $id=$massive['id'];
+        $pasport=$massive['pasport']??null;
+        $datePasport=!isset($massive['data_pasporta_vidacha'])?$massive['data_pasporta_vidacha']:null;
+        $familiaLatinica=$massive['familia_latinica']??null;
+        $imyLatinica=$massive['imy_latinica']??null;
+        $propiska=$massive['propiska']??null;
+        $otchestvo=$massive['otchestvo']??null;
 
+        $query = "UPDATE klient SET 
+        familia = '$soname',
+        imy = '$name',
+        sex = '$sex',
+        email = '$email',
+        date_of_birth = '$date_of_birth',
+        otchestvo = '$otchestvo',
+        pasport = '$pasport',
+        familia_latinica = '$familiaLatinica',
+        imy_latinica = '$imyLatinica',
+        propiska = '$propiska',
+        data_pasporta_vidacha = '$datePasport'
+        WHERE id_client = '$id'";
+        $user = $this->saveBD($query);
+
+        $query="SELECT * FROM phone WHERE id_client=$id";
+        $result=$this->findOne($query);
+        if(!empty($phone)){
+            if(isset($result)){
+                $query = "UPDATE phone SET
+                   phone = '$phone' 
+                  WHERE id_client = '$id'";
+                $userphone = $this->saveBD($query);
+            } else {
+                $query="INSERT INTO phone (
+                   id_client,
+                   phone)
+                   VALUE (
+                    $id, 
+                    $phone)";
+                $userphone = $this->saveBD($query);
+            }
+        }
+        return $id;
+    }
 }

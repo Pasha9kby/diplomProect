@@ -13,7 +13,6 @@ class TopInfo
     public function topInfo($userlist){
         $dateOfBirth= (new Get_age())->get_age( $userlist['date_of_birth']).(new Age_to_str())->agetostr((new Get_age())->get_age( $userlist['date_of_birth']));
 
-        $id=$userlist['id_client'];
         $href=(new Href())
             ->href("/user/main/$userlist[id_client]/", 'Личный кабинет', 'tophref')
             ->href("/user/anketa/$userlist[id_client]/", 'Анкета', 'tophref')
@@ -27,7 +26,7 @@ class TopInfo
         <div class='topInfo'>
             <div>
                 $href
-            </div>
+            </div>         
             <div>$userlist[name_tip_clienta]</div>
             <div>$userlist[familia] $userlist[imy]<br>$dateOfBirth
              </div>

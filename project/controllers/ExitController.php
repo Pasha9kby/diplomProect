@@ -12,6 +12,6 @@ class ExitController extends Controller
     public function exit(){
         session_destroy();
 
-        return $this->render('');
+        return $this->render('exit/exit');
     }
 }

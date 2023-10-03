@@ -3,7 +3,6 @@
 
 namespace Project\Controllers;
 use \Core\Controller;
-//use Core\Model;
 use \Project\Models\Registration;
 
 if(!empty($_POST)) {
@@ -45,6 +44,7 @@ if(!empty($_POST)) {
     if ($err['flag'] == 0) {
         $valMassive['password'] = password_hash($valMassive['password'], PASSWORD_DEFAULT);
         $val->save($valMassive);
+        session_destroy();
 
 //        $to='pasha9k@tut.by';
 //        $subject='проверка отправки';
@@ -55,7 +55,6 @@ if(!empty($_POST)) {
 
 
     } else {
-        session_start();
         $_SESSION['err'] = $err;
     }
 

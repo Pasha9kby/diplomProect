@@ -4,12 +4,11 @@ use core\controller;
 use \Project\Models\Input;
 
 $new_url = '/userlist/';
+$user_url = '/user/main/41/';
 
-($_SESSION['auth']==true)?(header('Location: ' . $new_url)):false;
 
 if(!empty($_POST['email'])){
     $massive[] = $_POST;
-
     $val = new Input();
     $valMassive = $val->validaition($massive);
     $user=$val->user($valMassive['email']);
@@ -17,11 +16,13 @@ if(!empty($_POST['email'])){
     if (!empty($user)) {
         $hash = $user['hash'];
         if (password_verify($_POST['password'], $hash)) {
-            session_start();
-            $_SESSION['auth']=true;
             $_SESSION['id']=$user['id_client'];
             $_SESSION['status']=$user['tip_clienta_id'];
-            header('Location: ' . $new_url);
+            if($user['tip_clienta_id']==1){
+                header('Location: ' . '/user/main/'.$user['id_client'].'/');
+            }
+            else {header('Location: ' . $new_url);}
+
 
         } else {
             $err = '<p class="currentPage">Не правильное сочетание логин/пароль</p>';
@@ -31,6 +32,7 @@ if(!empty($_POST['email'])){
     }
     $_SESSION['err']=$err;
 }
+
 
 
 

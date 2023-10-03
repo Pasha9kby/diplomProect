@@ -93,7 +93,9 @@ use Project\Klass\UserInfo\UserInfo;
 <!--    </aside>-->
     <main>
         <?
-        echo ($_SESSION['auth']==true)?((new UserInfo())->userInfo($_SESSION['id'])):false;?>
+        echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';?>
+        <pre>
+        </pre>
         <?= $content ?>
     </main>
 <!--    <aside class="sidebar right">-->

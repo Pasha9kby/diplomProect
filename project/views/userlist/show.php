@@ -13,7 +13,7 @@ use Project\Klass\Get_age\Get_age;
 
         <tr>
             <td>нет договора</td>
-            <td><a href="<?php echo "/user/main/".$value['id_client'].'/'?>"><? echo $value['familia'].$value['imy']; ?></a> </td>
+            <td><a href="<?php echo "/user/main/".$value['id_client'].'/'?>"><? echo $value['familia'].' '.$value['imy']; ?></a> </td>
             <td><? echo $value['sex']; ?></td>
             <td><? if(!empty($value['date_of_birth'])){echo (new Get_age())->get_age($value['date_of_birth']);} ?></td>
             <td><? echo $value['name_tip_clienta']; ?></td>

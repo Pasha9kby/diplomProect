@@ -24,12 +24,13 @@ class TopInfo
         $info1= "
         <p>Данные пользователя</p>
         <div class='topInfo'>
+        
             <div>
                 $href
             </div>";
-        $info2= ($_SESSION['status']==1 )?("<div>$userlist[name_tip_clienta]</div>
+        $info2= ($_SESSION['status']==1 )?(""):("<div>$userlist[name_tip_clienta]</div>
             <div>$userlist[familia] $userlist[imy]<br>$dateOfBirth
-             </div>"):('');
+             </div>");
         $info3 = "</div>
         <br>";
 

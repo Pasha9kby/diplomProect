@@ -24,7 +24,9 @@ class Href
                 $hrefArray[]= "<a href='$item[path]' class='$item[klass]'>$item[name]</a>";
             }
         }
-        $href= implode('<br>', $hrefArray);
+        is_array($hrefArray)?$href= implode('<br>', $hrefArray):$href=$hrefArray.'<br>';
+
         return $href;
     }
+
 }

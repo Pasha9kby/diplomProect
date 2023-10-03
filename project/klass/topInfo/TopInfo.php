@@ -13,18 +13,19 @@ class TopInfo
     public function topInfo($userlist){
         $dateOfBirth= (new Get_age())->get_age( $userlist['date_of_birth']).(new Age_to_str())->agetostr((new Get_age())->get_age( $userlist['date_of_birth']));
 
+        $listHref=(new Href())->href('/userlist/', 'Список клиентов', 'tophref')->listHref();
+
         $href=(new Href())
             ->href("/user/main/$userlist[id_client]/", 'Личный кабинет', 'tophref')
             ->href("/user/anketa/$userlist[id_client]/", 'Анкета', 'tophref')
             ->href("/user/redaction/$userlist[id_client]/", 'Изменить данные о себе', 'tophref')
             ->listHref();
 
-
+        $_SESSION['status']==3?($href=$listHref.'<br>'.$href):($href=$href);
 
         $info1= "
         <p>Данные пользователя</p>
-        <div class='topInfo'>
-        
+        <div class='topInfo'>       
             <div>
                 $href
             </div>";

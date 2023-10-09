@@ -92,10 +92,7 @@ use Project\Klass\UserInfo\UserInfo;
 <!--        левый сайдбар-->
 <!--    </aside>-->
     <main>
-        <?
-        echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';?>
-        <pre>
-        </pre>
+        <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';?>
         <?= $content ?>
     </main>
 <!--    <aside class="sidebar right">-->

@@ -92,7 +92,7 @@ use Project\Klass\UserInfo\UserInfo;
 <!--        левый сайдбар-->
 <!--    </aside>-->
     <main>
-        <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';?>
+        <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы';?>
         <?= $content ?>
     </main>
 <!--    <aside class="sidebar right">-->

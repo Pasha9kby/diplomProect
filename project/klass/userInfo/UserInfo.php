@@ -14,7 +14,7 @@ class UserInfo extends Model
 <div class='userInfo'>
      <div>Вы вошли как $user[imy] $user[familia]</div><br>  
 </div>
- <div class='userInfo'><a href=''>Выйти</a></div>
+ <div class='userInfo'><a href='/exit/'>Выйти</a></div>
         ";
         return $info;
     }

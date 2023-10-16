@@ -106,7 +106,6 @@ if(!empty($_POST)) {
             $new_url = "/user/anketa/$id/";
             header('Location: ' . $new_url);
         }else {
-            //session_start();
             $_SESSION['err'] = $err;
         }
     }

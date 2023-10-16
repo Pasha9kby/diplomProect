@@ -13,17 +13,26 @@ class TopInfo
     public function topInfo($userlist){
         $dateOfBirth= (new Get_age())->get_age( $userlist['date_of_birth']).(new Age_to_str())->agetostr((new Get_age())->get_age( $userlist['date_of_birth']));
 
-        $listHref=(new Href())->href('/userlist/', 'Список клиентов', 'tophref')->listHref();
-        //спиок работодателей и список вакансий
+        $listHrefAdmin=(new Href())->href('/userlist/', 'Список клиентов', 'tophref')
+                              ->href('/employerlist/', 'Список работодателей', 'tophref')
+                              ->listHref();
+
+        $hrefEmployer=(new Href())
+            ->href("/work/main/$userlist[id_client]/", 'Личный кабинет', 'tophref')
+            ->href("/work/anketa/$userlist[id_client]/", 'Анкета', 'tophref')
+            ->href("/work/redaction/$userlist[id_client]/", 'Изменить данные о себе', 'tophref')
+            ->href("/work/vacancylist/", 'Список вакансий', 'tophref')
+            ->listHref();
+        //спиок работодателей
 
         $href=(new Href())
             ->href("/user/main/$userlist[id_client]/", 'Личный кабинет', 'tophref')
             ->href("/user/anketa/$userlist[id_client]/", 'Анкета', 'tophref')
             ->href("/user/redaction/$userlist[id_client]/", 'Изменить данные о себе', 'tophref')
-            ->href("/work/list/", 'Список вакансий', 'tophref')
+            ->href("/work/vacancylist/", 'Список вакансий', 'tophref')
             ->listHref();
 
-        $_SESSION['status']==3?($href=$listHref.'<br>'.$href):($href=$href);
+        $_SESSION['status']==3?($href=$listHrefAdmin.'<br>'.$href):($href=$href);
 
         $info1= "
         <p>Данные пользователя</p>

@@ -30,7 +30,7 @@ if(!empty($_POST['email'])){
     } else {
         $err = '<p class="currentPage">Не правильное сочетание логин/пароль</p>';
     }
-    $_SESSION['err']=$err;
+    $_SESSION['inputErr']=$err;
 }
 
 

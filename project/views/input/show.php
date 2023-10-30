@@ -1,9 +1,11 @@
 <?php
-if(isset($_SESSION['err']))
+if(isset($_SESSION['inputErr']))
 {
-    $err=$_SESSION['err'];
+    $err=$_SESSION['inputErr'];
     echo $err;
 }
+unset($_SESSION['err']);
+
 
 ?>
 

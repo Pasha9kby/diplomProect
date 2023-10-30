@@ -1,9 +1,8 @@
 <?php
-if(isset($_SESSION['err']))
+if(!empty($_SESSION['err']))
 {
     $err=$_SESSION['err'];
 }
-
 
 ?>
 

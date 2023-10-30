@@ -4,6 +4,7 @@
 	return [
 		new Route('/hello/', 'hello', 'index'), // роут для приветственной страницы, можно удалить
         new Route('', 'input', 'show'),
+        new Route('/registration/:var/', 'registration', 'show'),
         new Route('/registration/', 'registration', 'show'),
         new Route('/registration/error/', 'registration', 'error'), //не успешная регистрация
         new Route('/registration/happy/', 'registration', 'happyRegistration'),
@@ -14,6 +15,7 @@
         new Route('/user/anketa/:var1/', 'user', 'anketa'),
         new Route('/user/redaction/:var1/', 'user', 'redaction'),
         new Route('/exit/', 'exit', 'exit'),
+        new Route('/work/employerlist/:page/', 'employerlist', 'show'),
         new Route('/work/employerlist/', 'employerlist', 'showMain'),
 
 

@@ -4,7 +4,9 @@
 namespace Project\Controllers;
 use \Core\Controller;
 use \Project\Models\Registration;
-
+echo "вар дамп: ";
+var_dump($_POST);
+if(!empty($_POST)) {echo "существует";} else {echo "не существует";}
 if(!empty($_POST)) {
     $err = [];
     $err['flag'] = 0;

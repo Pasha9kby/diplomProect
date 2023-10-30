@@ -1,25 +1,22 @@
-<?php
-?>
 
 <table  border="1">
     <tr>
-        <th>номер договора</th>
-        <th>ФИО</th>
-        <th>пол</th>
-        <th>возраст</th>
-        <th>статус</th>
+        <th>Наименование</th>
+        <th>Статус</th>
+        <th>Страна рег-ции</th>
     </tr>
-<!--    --><?//foreach ($userlist as $value){?>
-<!---->
-<!--        <tr>-->
-<!--            <td>нет договора</td>-->
-<!--            <td><a href="--><?php //echo "/user/main/".$value['id_client'].'/'?><!--">--><?// echo $value['familia'].' '.$value['imy']; ?><!--</a> </td>-->
-<!--            <td>--><?// echo $value['sex']; ?><!--</td>-->
-<!--            <td>--><?// if(!empty($value['date_of_birth'])){echo (new Get_age())->get_age($value['date_of_birth']);} ?><!--</td>-->
-<!--            <td>--><?// echo $value['name_tip_clienta']; ?><!--</td>-->
-<!--        </tr>-->
-<!---->
-<!--    --><?//}?>
-</table>
+    <?foreach ($userlist as $value){?>
 
+        <tr>
+            <td><a href="<?php echo "/work/main/".$value['id_firma'].'/'?>"><? echo $value['name']; ?></a> </td>
+            <td><? echo $value['name_tip_clienta']; ?></td>
+            <td><? echo $value['name_country']; ?></td>
+        </tr>
+    <?}?>
+</table>
 <? echo $navigationPage; ?>
+<br>
+<form action="" target="_blank">
+    <button type="submit" class="submit" name="submit">добавить</button>
+</form>
+

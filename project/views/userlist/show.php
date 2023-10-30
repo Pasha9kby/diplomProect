@@ -1,6 +1,8 @@
 <?php
 use Project\Klass\Get_age\Get_age;
+
 ?>
+
 <table  border="1">
     <tr>
         <th>номер договора</th>
@@ -23,4 +25,7 @@ use Project\Klass\Get_age\Get_age;
 </table>
 
 <? echo $navigationPage; ?>
-
+<br>
+<form action="/registration/" target="_blank">
+    <button type="submit" class="submit" name="userreg"><a href="/registration/">добавить</a></button>
+</form>

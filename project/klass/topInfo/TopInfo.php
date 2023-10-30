@@ -14,7 +14,7 @@ class TopInfo
         $dateOfBirth= (new Get_age())->get_age( $userlist['date_of_birth']).(new Age_to_str())->agetostr((new Get_age())->get_age( $userlist['date_of_birth']));
 
         $listHrefAdmin=(new Href())->href('/userlist/', 'Список клиентов', 'tophref')
-                              ->href('/employerlist/', 'Список работодателей', 'tophref')
+                              ->href('/work/employerlist/', 'Список работодателей', 'tophref')
                               ->listHref();
 
         $hrefEmployer=(new Href())

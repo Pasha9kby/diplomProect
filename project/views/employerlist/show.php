@@ -1,3 +1,6 @@
+<?
+use Project\Klass\topInfo\TopInfo;
+echo (new TopInfo())->topInfo($userlist); ?>
 
 <table  border="1">
     <tr>

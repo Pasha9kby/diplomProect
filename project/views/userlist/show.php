@@ -1,7 +1,9 @@
 <?php
+use Project\Klass\topInfo\TopInfo;
 use Project\Klass\Get_age\Get_age;
 unset($_SESSION['err']);
 ?>
+
 
 <table  border="1">
     <tr>

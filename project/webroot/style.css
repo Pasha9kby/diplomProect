@@ -1,8 +1,8 @@
 /* CSS Document */
-.topInfo {
-    display: flex;
-    justify-content: space-between;
-}
+/*.topInfo {*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
 .userInfo {
     display: flex;
     justify-content: flex-end;
@@ -14,4 +14,10 @@
 .click {
     color: darkred;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
 

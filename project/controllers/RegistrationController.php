@@ -45,7 +45,8 @@ if(!empty($_POST)) {
     if ($err['flag'] == 0) {
         $valMassive['password'] = password_hash($valMassive['password'], PASSWORD_DEFAULT);
         $val->save($valMassive);
-        session_destroy();
+        unset($_SESSION['err']);
+
 
 //        $to='pasha9k@tut.by';
 //        $subject='проверка отправки';

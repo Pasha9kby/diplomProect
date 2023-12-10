@@ -6,6 +6,7 @@ use core\controller;
 //use Project\Models\Userlist;
 use Project\Klass\Pagination\Pagination;
 use Project\Klass\UserInfo\UserInfo;
+use Project\Models\User;
 
 
 class UserlistController extends Controller
@@ -22,7 +23,9 @@ class UserlistController extends Controller
         $userlist=(new Pagination($page))->users($queryArray);
         $navigationPage=(new Pagination($page))->pageCount($queryCount);
         return $this->render('userlist/show', ['userlist'=>$userlist,
-                                                    'navigationPage'=>$navigationPage]);
+                                                    'navigationPage'=>$navigationPage,
+                                                     'userlist1'=>(new User())->user($params)]
+        );
     }
 
     public function showMain(){

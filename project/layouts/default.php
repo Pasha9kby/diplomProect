@@ -1,5 +1,6 @@
 <?php
 use Project\Klass\UserInfo\UserInfo;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,19 +86,20 @@ use Project\Klass\UserInfo\UserInfo;
             </li>
         </ul>
     </div>
-
+    <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы';?>
 </header><!-- / block_179600 -->
 <div class="container">
-<!--    <aside class="sidebar left">-->
-<!--        левый сайдбар-->
-<!--    </aside>-->
+
+    <aside class="sidebar left">
+        <? echo (!empty($_SESSION['id']))?((new \Project\Klass\sidebar_left\SidebarLeft())->sidebarLeft($_SESSION)):'';?>
+
+    </aside>
     <main>
-        <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы';?>
         <?= $content ?>
     </main>
-<!--    <aside class="sidebar right">-->
-<!--        правый сайдбар-->
-<!--    </aside>-->
+    <aside class="sidebar right">
+
+    </aside>
 </div>
 <footer id="footer" class="dark footer_5" style="">
     <div class="overfill" style="background-color: rgba(0, 0, 0, 0.85);	"></div>

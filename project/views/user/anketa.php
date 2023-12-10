@@ -1,9 +1,8 @@
 <?php
 
-use Project\Klass\topInfo\TopInfo;
 use Project\Klass\Get_age\Get_age;
 
-//echo (new TopInfo())->topInfo($userlist); ?>
+?>
 
 <div>
     <div>Фамилия: <?=$userlist['familia']?></div>

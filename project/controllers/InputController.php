@@ -4,7 +4,6 @@ use core\controller;
 use \Project\Models\Input;
 
 $new_url = '/userlist/';
-$user_url = '/user/main/41/';
 
 
 if(!empty($_POST['email'])){

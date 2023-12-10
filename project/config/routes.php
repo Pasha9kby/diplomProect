@@ -3,11 +3,11 @@
 	
 	return [
 		new Route('/hello/', 'hello', 'index'), // роут для приветственной страницы, можно удалить
-        new Route('', 'input', 'show'),
-        new Route('/registration/:var/', 'registration', 'show'),
-        new Route('/registration/', 'registration', 'show'),
+        new Route('', 'input', 'show'), // страница для ввода логина и пароля
+        new Route('/registration/:var/', 'registration', 'show'), //изменение данных
         new Route('/registration/error/', 'registration', 'error'), //не успешная регистрация
-        new Route('/registration/happy/', 'registration', 'happyRegistration'),
+        new Route('/registration/happy/', 'registration', 'happyRegistration'), // успешная регистрация
+        new Route('/registration/', 'registration', 'show'), // ввод данных по юзеру
         new Route('/userlist/:page/', 'userlist', 'show'),
         new Route('/userlist/', 'userlist', 'showMain'),
         new Route('/user/main/:var1/:var2/', 'user', 'show'),

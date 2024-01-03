@@ -86,7 +86,7 @@ use Project\Klass\UserInfo\UserInfo;
             </li>
         </ul>
     </div>
-    <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы';?>
+    <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы сегодня';?>
 </header><!-- / block_179600 -->
 <div class="container">
 

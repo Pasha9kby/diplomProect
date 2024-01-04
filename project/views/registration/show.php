@@ -62,6 +62,8 @@ if(!empty($_SESSION['err']))
     <button type="submit" class="submit" name="submit">Отправить</button>
 </form>
 
+ПРИВЕТ
+
 
 
 

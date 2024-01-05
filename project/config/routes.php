@@ -4,9 +4,9 @@
 	return [
 		new Route('/hello/', 'hello', 'index'), // роут для приветственной страницы, можно удалить
         new Route('', 'input', 'show'), // страница для ввода логина и пароля
-        new Route('/registration/:var/', 'registration', 'show'), //изменение данных
         new Route('/registration/error/', 'registration', 'error'), //не успешная регистрация
-        new Route('/registration/happy/', 'registration', 'happyRegistration'), // успешная регистрация
+        new Route('/registration/happy/', 'registration', 'happyregistration'), // успешная регистрация
+        new Route('/registration/:var/', 'registration', 'show'), //изменение данных
         new Route('/registration/', 'registration', 'show'), // ввод данных по юзеру
         new Route('/userlist/:page/', 'userlist', 'show'),
         new Route('/userlist/', 'userlist', 'showMain'),
@@ -17,6 +17,7 @@
         new Route('/exit/', 'exit', 'exit'),
         new Route('/work/employerlist/:page/', 'employerlist', 'show'),
         new Route('/work/employerlist/', 'employerlist', 'showMain'),
+        
 
 
 	];

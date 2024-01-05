@@ -6,12 +6,15 @@ use \Core\Controller;
 use \Project\Models\Registration;
 
 
+if(!empty($_POST)) {echo 'существует ПОСТ';}
+
 if(!empty($_POST)) {
     $err = [];
     $err['flag'] = 0;
     $new_url = '/registration/happy/';
     $massive[] = $_POST;
 
+    
     $val = new Registration();
     $valMassive = $val->validaition($massive);
     $errSex = $val->validSex($valMassive);
@@ -78,11 +81,12 @@ class RegistrationController extends Controller
         return $this->render('registration/error');
     }
 
-    public function happyRegistration()
+    public function happyregistration()
     {
-        $this->title="happyRegistration";
+        $this->title="happyregistration";
         return $this->render('registration/happy');
     }
 
+    
 }
 

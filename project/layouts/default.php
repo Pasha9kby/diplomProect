@@ -1,4 +1,5 @@
 <?php
+use Project\Klass\Page_verification\Page_verification;
 use Project\Klass\UserInfo\UserInfo;
 
 ?>
@@ -86,7 +87,9 @@ use Project\Klass\UserInfo\UserInfo;
             </li>
         </ul>
     </div>
-    <? echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'Вы не авторизованы сегодня';?>
+    <? 
+    echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';
+    ?>
 </header><!-- / block_179600 -->
 <div class="container">
 

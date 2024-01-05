@@ -3,6 +3,10 @@ namespace Project\Controllers;
 use core\controller;
 use Project\Klass\Pagination\Pagination;
 use Project\Models\Vacancy;
+use Project\Klass\Page_verification\Page_verification;
+
+
+new Page_verification();
 
 class VacancyController extends Controller
 {

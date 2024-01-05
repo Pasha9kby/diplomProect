@@ -166,7 +166,6 @@ class Registration extends Model
         $phone=$massive['phone'];
         $date_of_birth=$massive['date_of_birth'];
 
-
         $query = "INSERT INTO klient (
         email,
         tip_clienta_id)

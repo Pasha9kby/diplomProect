@@ -5,7 +5,10 @@ use Core\Controller;
 use Project\Models\User;
 use Project\Klass\Validation\Validation;
 use Project\Klass\Pagination\Pagination;
+use Project\Klass\Page_verification\Page_verification;
 
+
+new Page_verification();
 
 if(!empty($_POST)) {
     $err = [];

@@ -17,6 +17,8 @@
         new Route('/exit/', 'exit', 'exit'),
         new Route('/work/employerlist/:page/', 'employerlist', 'show'),
         new Route('/work/employerlist/', 'employerlist', 'showMain'),
+        new Route('/work/vacancylist/:page/', 'vacancylist', 'show'),
+        new Route('/work/vacancylist/', 'vacancylist', 'showMain'),
 
 
 	];

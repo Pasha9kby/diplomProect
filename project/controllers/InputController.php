@@ -2,7 +2,10 @@
 namespace Project\Controllers;
 use core\controller;
 use \Project\Models\Input;
+use Project\Klass\Page_verification\Page_verification;
 
+
+new Page_verification();
 $new_url = '/userlist/';
 
 

@@ -1,12 +1,13 @@
 <?php
 namespace Project\Klass\sidebar_left;
-
 use Project\Klass\Href\Href;
 
 class SidebarLeft
 {
     public function sidebarLeft($userlist){
-
+        $url=explode('/', $_SERVER["REQUEST_URI"]);
+        if((strlen($url[1])>0) and $url[1]!='registration'){ 
+            
         $listHrefAdmin=(new Href())->href('/userlist/', 'Список клиентов', 'tophref')
             ->href('/work/employerlist/', 'Список работодателей', 'tophref')
             ->listHref();
@@ -29,5 +30,6 @@ class SidebarLeft
         $_SESSION['status']==3?($href=$listHrefAdmin.'<br>'.$href):($href=$href);
 
         return $href;
+        }
     }
 }

@@ -166,24 +166,32 @@ class Registration extends Model
         $phone=$massive['phone'];
         $date_of_birth=$massive['date_of_birth'];
 
-
         $query = "INSERT INTO klient (
-        familia,
-        imy,
-        sex,
         email,
-        date_of_birth,
         tip_clienta_id)
         VALUES (
-                '$soname',
-                '$name',
-                '$sex',
                 '$email',
-                '$date_of_birth',
-                1
+                 1
          )";
         $user = $this->saveBD($query);
         $id=$this->lastID();
+
+        $query = "INSERT INTO anketa_clienta (
+            id_clienta,
+            familia,
+            imy,
+            sex,
+            date_of_birth
+            )
+            VALUES (
+                    '$id',
+                    '$soname',
+                    '$name',
+                    '$sex',
+                    '$date_of_birth'
+             )";
+        $user = $this->saveBD($query);
+           
         $query = "INSERT INTO phone (
                    id_client,
                    phone) 

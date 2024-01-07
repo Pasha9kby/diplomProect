@@ -22,4 +22,7 @@ unset($_SESSION['err']);
 </form>
 
 <a href="/registration/">регистрация</a>
+<br>
+
+
 

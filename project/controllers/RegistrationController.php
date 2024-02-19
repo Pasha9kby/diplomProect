@@ -6,7 +6,7 @@ use \Core\Controller;
 use \Project\Models\Registration;
 
 
-if(!empty($_POST)) {echo 'существует ПОСТ';}
+//if(!empty($_POST)) {echo 'существует ПОСТ';}
 
 if(!empty($_POST)) {
     $err = [];

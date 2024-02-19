@@ -1,6 +1,6 @@
 <?php
 namespace Project\Controllers;
-use core\controller;
+use \Core\Controller;
 use Project\Klass\Pagination\Pagination;
 use Project\Models\Vacancylist;
 use Project\Models\Vacancy;

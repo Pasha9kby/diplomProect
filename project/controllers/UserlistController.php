@@ -2,7 +2,7 @@
 
 
 namespace Project\Controllers;
-use core\controller;
+use \Core\Controller;
 use Project\Models\Userlist;
 use Project\Klass\Pagination\Pagination;
 use Project\Klass\UserInfo\UserInfo;

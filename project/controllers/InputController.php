@@ -1,6 +1,6 @@
 <?php
 namespace Project\Controllers;
-use core\controller;
+use \Core\Controller;
 use \Project\Models\Input;
 use Project\Klass\Page_verification\Page_verification;
 

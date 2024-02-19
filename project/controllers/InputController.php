@@ -2,7 +2,7 @@
 namespace Project\Controllers;
 use \Core\Controller;
 use \Project\Models\Input;
-use Project\Klass\Page_verification\Page_verification;
+use \Project\Klass\Page_verification\Page_verification;
 
 
 new Page_verification();

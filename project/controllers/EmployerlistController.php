@@ -5,7 +5,7 @@ use \Core\Controller;
 use Project\Klass\Pagination\Pagination;
 use Project\Klass\UserInfo\UserInfo;
 use Project\Klass\Page_verification\Page_verification;
-use \Project\Models\Employerlist;
+use Project\Models\Employerlist;
 
 new Page_verification();
 
@@ -25,13 +25,9 @@ class EmployerlistController extends Controller
                                                          'navigationPage'=>$navigationPage]);
     }
     public function showMain(){
-        $queryArray="SELECT * FROM firma
-                          LEFT JOIN tip_clienta
-                          ON id_tip_clienta = 4 
-                          LEFT JOIN country
-                          ON country_id = id_country
-                          ";
-        $queryCount="SELECT COUNT(*) as count FROM firma";
+        $Employerlist=new Employerlist();
+        $queryCount=$Employerlist->queryCount();
+        $queryArray=$Employerlist->queryArray();
         $userlist=(new Pagination(1,10))->users($queryArray);
         $navigationPage=(new Pagination(1,10))
             ->pageCount($queryCount);
@@ -39,6 +35,14 @@ class EmployerlistController extends Controller
         return $this->render('employerlist/show', ['userlist'=>$userlist,
                                                          'navigationPage'=>$navigationPage,
                                                          'userTopInfo'=>$userTopInfo]);
+    }
+
+    public function add(){
+
+
+        return $this->render('addemployer', ['userlist'=>$userlist,
+            'navigationPage'=>$navigationPage,
+            'userTopInfo'=>$userTopInfo]);
     }
 
 }

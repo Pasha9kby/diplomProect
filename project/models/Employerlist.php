@@ -8,6 +8,7 @@ class Employerlist extends Model
 {
     public function queryCount() {
         $queryCount="SELECT COUNT(*) as count FROM firma";
+        return $queryCount;
     }
 
     public function queryArray() {
@@ -16,6 +17,7 @@ class Employerlist extends Model
                           ON id_tip_clienta = 4 
                           LEFT JOIN country
                           ON country_id = id_country ";
+        return $queryArray;
     }
 
 }

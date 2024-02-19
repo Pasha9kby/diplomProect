@@ -15,6 +15,7 @@
         new Route('/user/anketa/:var1/', 'user', 'anketa'),
         new Route('/user/redaction/:var1/', 'user', 'redaction'),
         new Route('/exit/', 'exit', 'exit'),
+        new Route('/work/addemployer/', 'employerlist', 'show'),
         new Route('/work/employerlist/:page/', 'employerlist', 'show'),
         new Route('/work/employerlist/', 'employerlist', 'showMain'),
         new Route('/work/vacancylist/:page/', 'vacancylist', 'show'),

@@ -17,6 +17,6 @@
 <? echo $navigationPage; ?>
 <br>
 <form action="" target="_blank">
-    <button type="submit" class="submit" name="submit">добавить</button>
+    <button type="submit" class="submit" name="addemployer"><a href="/work/employerlist/addemployer/">добавить</a></button>
 </form>
 

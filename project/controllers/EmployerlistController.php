@@ -38,11 +38,12 @@ class EmployerlistController extends Controller
     }
 
     public function add(){
-
-
-        return $this->render('addemployer', ['userlist'=>$userlist,
-            'navigationPage'=>$navigationPage,
-            'userTopInfo'=>$userTopInfo]);
+        $userTopInfo=(new UserInfo())->userInfo($_SESSION['id']);
+        $countryList=(new Employerlist())->country();
+        return $this->render('employerlist/addemployer',
+            ['userTopInfo'=>$userTopInfo,
+            'countryList'=>$countryList]
+        );
     }
 
 }

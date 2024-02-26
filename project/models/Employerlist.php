@@ -20,4 +20,10 @@ class Employerlist extends Model
         return $queryArray;
     }
 
+    public function country() {
+        $queryArray="SELECT * FROM country";
+        $countryList=$this->findMany($queryArray);
+        return $countryList;
+    }
+
 }

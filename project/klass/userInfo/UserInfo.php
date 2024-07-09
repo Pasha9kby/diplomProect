@@ -10,12 +10,14 @@ class UserInfo extends Model
         $query="SELECT * FROM klient WHERE id_client=$id";
         $user = $this->findOne($query);
 
-        $info="
+            $info="
 <div class='userInfo'>
      <div>Вы вошли как $user[imy] $user[familia]</div><br>  
 </div>
  <div class='userInfo'><a href='/exit/'>Выйти</a></div>
-        ";
+       ";
+
+
         return $info;
     }
 }

@@ -87,9 +87,13 @@ use Project\Klass\UserInfo\UserInfo;
             </li>
         </ul>
     </div>
-    <? 
+    <?
+//    echo $_SERVER['REQUEST_URI'];
+    if($_SERVER['REQUEST_URI']=='/exit/'){(session_destroy());}
+//    var_dump($_SESSION);
     echo (!empty($_SESSION['id']))?((new UserInfo())->userInfo($_SESSION['id'])):'';
     ?>
+
 </header><!-- / block_179600 -->
 <div class="container">
 
